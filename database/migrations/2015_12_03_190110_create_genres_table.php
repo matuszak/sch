@@ -13,7 +13,8 @@ class CreateGenresTable extends Migration
     public function up()
     {
         Schema::create('genres', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('gene_id');
+            $table->string('gene_nome');
             $table->timestamps();
         });
     }

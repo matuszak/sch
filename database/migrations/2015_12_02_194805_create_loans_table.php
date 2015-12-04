@@ -16,16 +16,21 @@ class CreateLoansTable extends Migration
             $table->increments('loan_id');
             $table->ingeger('loan_book_id');
             $table->ingeger('loan_func_id');
-            $table->ingeger('loan_cust_id');
-           // $table->foreign('loan_livro_fk')->references('book_id')->on('books');
+            $table->ingeger('loan_clie_id');
             $table->integer('loan_x_emprestou');
             $table->date('loan_dia_emprestimo');
             $table->date('loan_dia_devolucao');
             $table->date('loan_data_prevista');
             $table->string('loan_avisos');
-            $table->char('loan_sala_de_leitura')
+            $table->char('loan_sala_de_leitura' 1);
             $table->timestamps();
+            $table->foreign('loan_book_id')->references('book_id')->on('books');
+            $table->foreign('loan_func_id')->references('func_id')->on('employees');
+            $table->foreign('loan_clie_id')->references('clie_id')->on('customers');
+
+       
         });
+    }); 
     }
 
     /**

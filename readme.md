@@ -1,3 +1,29 @@
+#SCH - SystemLearn
+DOCUMENTAÇÃO DO PROGRAMA TODO ESTARÁ AQUI!
+
+
+# BANCO DE DADOS;
+-----------------------
+Bancos de dados 
+Relações
+
+FUNCIONÁRIOS
+1 FUNC 		FAZ N: EMPRESTIMOS, N: DEVOLUÇÕES, COM N: LIVROS (1:N);
+1 CLIENTE 	FAZ N: EMPRESITMOS, N: DEVOLUÇÕES, COM N: LIVROS (1:N);
+1 LIVRO 	TEM 1: GENERO, 1: EDITORA; (1:1);
+1 EDITORA	TEM N: LIVROS, (1:N);
+1 GENERO	TEM N: LIVROS, (1:N);
+1 LIVRO		TEM 1: GENERO, (1:1);
+
+
+
+
+
+
+
+
+
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

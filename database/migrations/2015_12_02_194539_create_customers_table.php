@@ -13,17 +13,17 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->increments('cust_id');
-            $table->string('cust_cpf', 11);
-            $table->string('cust_email', 60);
-            $table->string('cust_endereco', 100);
-            $table->string('cust_fone', 16);
-            $table->string('cust_nome', 80);
-            $table->string('cust_password', 40);
-            $table->string('cust_rg', 20);
-            $table->char('cust_sexo', 1);
-            $table->string('cust_tipo', 10);
-            $table->integer('cust_n_emprestimos');
+            $table->increments('clie_id');
+            $table->string('clie_cpf', 11);
+            $table->string('clie_email', 60);
+            $table->string('clie_endereco', 100);
+            $table->string('clie_fone', 16);
+            $table->string('clie_nome', 80);
+            $table->integer('clie_n_emprestimos');
+            $table->string('clie_password', 40);
+            $table->string('clie_rg', 20);
+            $table->char('clie_sexo', 1);
+            $table->string('clie_tipo', 10);
             $table->timestamps();
         });
     }
