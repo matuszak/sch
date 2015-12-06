@@ -13,9 +13,11 @@
 
 Route::get('/', function () {   return view('library.index'); });
 Route::get('home', function () {   return view('library.index'); });
+Route::get('biblioteca', function () {   return view('library.index'); });
 
 Route::controller('library',	'libraryController');
-Route::controller('funcionarios', 		'employeeController');
+Route::controller('biblioteca/funcionarios', 		'employeeController');
+Route::controller('biblioteca/generos', 'generosController');
 //Route::get('employee', 			'employeeController@index');
 //Route::controller('users', 'usersController');
 //Route::get('users', 'usersController@index');
