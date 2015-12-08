@@ -25,6 +25,7 @@ class CreateLivrosTable extends Migration
             $table->string('classificacao', 30);
             $table->char('status', 5);
             $table->string('tipo_obra', 55);
+            $table->string('salaLeitura', 1);
             $table->timestamps();
 
             $table->foreign('editora_id')->references('id')->on('editoras');
