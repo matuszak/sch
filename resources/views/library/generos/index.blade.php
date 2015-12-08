@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1>{{$msgT}}</h1>
+	<h1>BIBLIOTECA > GÊNEROS</h1>
 	<div class="table-responsive">
 	<table class="table table-hover table-bordered">
  		<th><b>#ID</b></th>
