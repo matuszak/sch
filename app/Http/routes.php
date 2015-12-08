@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {   return view('library.index'); });
+Route::get('/', function () {   return view('welcome'); });
 Route::get('home', function () {   return view('library.index'); });
 Route::get('biblioteca', function () {   return view('library.index'); });
 

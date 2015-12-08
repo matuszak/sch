@@ -11,89 +11,58 @@ use BD;
 
 class generosController extends Controller
 {
+    
+    //Inicial
     public function getIndex()
+<<<<<<< HEAD
     //funcao que requer os dados do banco e faz listar no foreach;
     {
         $gen = Genero::get();
 
         return view('library.generos.index', compact('gen', 'genero'));   
+=======
+    {   
+        //Variavel que recebe o título da pagina e do <h1>;
+        $msgT = 'LISTAGEM DOS GÊNEROS:';
+        $generos = Genero::get();
+        return view('library.generos.index', compact('generos', 'msgT'));   
+>>>>>>> b58499b7136452c10acc0682d959dd15708f76c5
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getNovo()
+    
+    //Método Adicionar, recebendo dados do formulário
+    public function getAdd()
     {
         return view('library.generos.generos');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function postNovo(Request $request)
+    
+    //Método Adicionar, enviando ao formulário
+    public function postAdd(Request $request)
     {
-        //dd = dump and die, do and die;   //dd($request->all());
-        //método para se puxar dados especificos dos campos
-        //metodo demorado...
-        /*
-        $genero = new Genero;
-        $genero->nome = $request->input('nome');
-        $genero->save();
-        return redirect('biblioteca/generos/novo');
-        */
         $dadosForm = $request->all();
         Genero::create($dadosForm);
 
-        return redirect('biblioteca/generos/novo');
+        return redirect('biblioteca/generos');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    //Método Editar, recebendo informações
+    public function getEd($acao, $id)
+    {   
+        $genero = Genero::find($id);
+        return view('library.generos.generos', compact('genero', 'acao'));
+    }
+    //Método Editar, postando informações
+    public function postEd(Request $request, $id)
     {
-        //
+        $dadosForm = $request->except('_token');
+        Genero::where('id', $id)->update($dadosForm);
+        return redirect('biblioteca/generos');
+    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function getRm($acao, $id)
+    {   
+        $msgD = "Deletando!";
+        $genero = Genero::find($id);
+        return view('library.generos.generos', compact('genero', 'acao'));
     }
 }
