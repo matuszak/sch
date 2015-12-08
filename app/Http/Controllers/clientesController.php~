@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Library\Genero;
+use App\Models\Library\Cliente;
 use BD;
 
 
-class generosController extends Controller
+class clientesController extends Controller
 {
     public function getIndex()
     //funcao que requer os dados do banco e faz listar no foreach;
     {
-        $gen = Genero::get();
+        $cli = Cliente::get();
 
-        return view('library.generos.index', compact('gen', 'genero'));   
+        return view('library.clientes.index', compact('cli', 'cliente'));   
     }
 
     /**
@@ -26,7 +26,7 @@ class generosController extends Controller
      */
     public function getNovo()
     {
-        return view('library.generos.generos');
+        return view('library.clientes.clientes');
     }
 
     /**
@@ -41,15 +41,15 @@ class generosController extends Controller
         //método para se puxar dados especificos dos campos
         //metodo demorado...
         /*
-        $genero = new Genero;
-        $genero->nome = $request->input('nome');
-        $genero->save();
-        return redirect('biblioteca/generos/novo');
+        $cliente = new cliente;
+        $cliente->nome = $request->input('nome');
+        $cliente->save();
+        return redirect('biblioteca/clientes/novo');
         */
         $dadosForm = $request->all();
-        Genero::create($dadosForm);
+        Cliente::create($dadosForm);
 
-        return redirect('biblioteca/generos/novo');
+        return redirect('biblioteca/clientes/novo');
     }
 
     /**

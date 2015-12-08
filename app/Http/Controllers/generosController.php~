@@ -12,7 +12,6 @@ use BD;
 class generosController extends Controller
 {
     public function getIndex()
-    //funcao que requer os dados do banco e faz listar no foreach;
     {
         $gen = Genero::get();
 
