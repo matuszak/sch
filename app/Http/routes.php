@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/', function () {   return view('library.index'); });
+Route::get('/', function () {   return view('welcome'); });
 Route::get('home', function () {   return view('library.index'); });
 Route::get('biblioteca', function () {   return view('library.index'); });
 
 Route::controller('library',	'libraryController');
 Route::controller('biblioteca/generos', 'generosController');
+Route::controller('biblioteca/clientes', 'clientesController');
+Route::controller('biblioteca/series', 'seriesController');
+
+
 //Route::get('employee', 			'employeeController@index');
 //Route::controller('users', 'usersController');
 //Route::get('users', 'usersController@index');
