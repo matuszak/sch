@@ -14,9 +14,11 @@ class generosController extends Controller
     
     //Inicial
     public function getIndex()
-    {
-        $gen = Genero::get();
-        return view('library.generos.index', compact('gen', 'genero'));   
+    {   
+        //Variavel que recebe o título da pagina e do <h1>;
+        $msgT = 'LISTAGEM DOS GÊNEROS:';
+        $generos = Genero::get();
+        return view('library.generos.index', compact('generos', 'msgT'));   
     }
     
     //Método Adicionar, recebendo dados do formulário
@@ -35,15 +37,13 @@ class generosController extends Controller
     }
 
     //Método Editar, recebendo informações
-    public function getEdit($id)
-    {
+    public function getEd($acao, $id)
+    {   
         $genero = Genero::find($id);
-        return view('library.generos.generos', compact('genero'));
-
+        return view('library.generos.generos', compact('genero', 'acao'));
     }
     //Método Editar, postando informações
-    public function postEdit(Request $request, $id)
-
+    public function postEd(Request $request, $id)
     {
         $dadosForm = $request->except('_token');
         Genero::where('id', $id)->update($dadosForm);
@@ -51,10 +51,10 @@ class generosController extends Controller
     
     }
 
-    
-    public function getDel($id, $acao)
-    {  $genero = Genero::find($id);
-        
+    public function getRm($acao, $id)
+    {   
+        $msgD = "Deletando!";
+        $genero = Genero::find($id);
         return view('library.generos.generos', compact('genero', 'acao'));
     }
 }
