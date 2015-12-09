@@ -9,7 +9,6 @@ use App\Models\Library\Genero;
 use DB;
 use Validator;
 
-
 class generosController extends Controller
 {
     
@@ -17,7 +16,7 @@ class generosController extends Controller
     public function getIndex()
     {   
         //LISTA TODOS OS GENEROS CADASTRADOS OU MSG DE ERRO!
-        $generos = Genero::get();
+        $generos = Genero::paginate(25);
         return view('library.generos.index', compact('generos'));   
     }
     

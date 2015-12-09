@@ -2,7 +2,9 @@
 
 @section('content')
 	<h1><small>BIBLIOTECA</small> SÉRIES E COLEÇÕES</h1>
+	<hr>
 	<div class="table-responsive">
+	<p><span class="label label-success">Total de registros cadastrados: {{ $series->total() }}</span></p>
 	<table class="table table-hover table-bordered table-condensed">
  		
  		<th><b>NOME</b></th>
@@ -23,5 +25,6 @@
 		{!! HTML::link('biblioteca', 'CLIQUE PARA VOLTAR', ['class' => 'btn btn-warning']) !!}</p><br>
 	@endforelse
 	</table>
+	<center>{!! $series->render() !!}</center>
 	</div>
 @endsection

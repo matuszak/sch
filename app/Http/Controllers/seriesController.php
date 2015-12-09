@@ -18,7 +18,7 @@ class seriesController extends Controller
     public function getIndex()
     {   
         //LISTA TODOS AS COLEÇÕES E SÉRIES, CADASTRADOS OU MSG DE ERRO!
-        $series = Serie::get();
+        $series = Serie::paginate(25);
         //view link interno;
         return view('library.series.index', compact('series'));   
     }

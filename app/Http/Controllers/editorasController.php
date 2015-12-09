@@ -18,7 +18,7 @@ class editorasController extends Controller
     public function getIndex()
     {   
         //LISTA TODOS AS COLEÇÕES E SÉRIES, CADASTRADOS OU MSG DE ERRO!
-        $editoras = Editora::get();
+        $editoras = Editora::paginate(25);
         //view link interno;
         return view('library.editoras.index', compact('editoras'));   
     }
