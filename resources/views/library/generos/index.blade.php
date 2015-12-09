@@ -1,15 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1><small>BIBLIOTECA</small> GÊNEROS</h1>
+@section('content')
+<br>
+<div class="panel panel-default">
+	<h1>BIBLIOTECA GÊNEROS</h1>
 	<hr>
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $generos->total() }}</span></p>
 	<table class="table table-hover table-bordered table-condensed">
- 		
+ 		<tr>
  		<th><b>NOME</b></th>
  		<th><b>AÇÕES</b></th>
- 		<tr>
+ 		</tr>
  			<td></td>
  			<td>{!! HTML::link('biblioteca/generos/add', 'ADICIONAR') !!}</td>
 		</tr>
@@ -25,4 +28,5 @@
 	</table>
 	<center>{!! $generos->render() !!}</center>
 	</div>
+
 @endsection

@@ -35,10 +35,7 @@ class seriesController extends Controller
     {
         $dadosForm = $request->all();
         //validação para adicionar novo
-        $validator = Validator::make($dadosForm, [
-            'nome' => 'required|unique:series|min:3|max:30',
-        ]);
-
+        $validator = Validator::make($dadosForm, Serie::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/series/add')
                         ->withErrors($validator)
@@ -59,9 +56,7 @@ class seriesController extends Controller
     public function postEd(Request $request, $id)
     {
          //validação para edicação
-        $validator = Validator::make($request->all(), [
-            'nome' => 'required|unique:series|min:3|max:30',
-        ]);
+        $validator = Validator::make($request->all(), Serie::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/series/add')
                         ->withErrors($validator)

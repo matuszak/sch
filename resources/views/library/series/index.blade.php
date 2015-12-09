@@ -1,16 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1><small>BIBLIOTECA</small> SÉRIES E COLEÇÕES</h1>
+	<br>
+<div class="panel panel-default">
+	<h1>BIBLIOTECA SÉRIES/COLEÇÕES</h1>
 	<hr>
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $series->total() }}</span></p>
 	<table class="table table-hover table-bordered table-condensed">
- 		
  		<th><b>NOME</b></th>
  		<th><b>AÇÕES</b></th>
  		<tr>
- 			
  			<td></td>
  			<td wid>{!! HTML::link('biblioteca/series/add', 'ADICIONAR') !!}</td>
 		</tr>

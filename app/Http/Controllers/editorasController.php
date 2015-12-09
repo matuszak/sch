@@ -35,11 +35,7 @@ class editorasController extends Controller
     {
         $dadosForm = $request->all();
         //validação para adicionar novo
-        $validator = Validator::make($dadosForm, [
-             'nome' => 'required|min:3|max:40',
-             'local' => 'required|min:3|max:50',
-        ]);
-
+        $validator = Validator::make($dadosForm, Editora::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/editoras/add')
                         ->withErrors($validator)
@@ -60,10 +56,7 @@ class editorasController extends Controller
     public function postEd(Request $request, $id)
     {
          //validação para edicação
-        $validator = Validator::make($request->all(), [
-            'nome' => 'required|min:3|max:40',
-            'local' => 'required|min:3|max:50',
-        ]);
+        $validator = Validator::make($request->all(), Editora::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/editoras/add')
                         ->withErrors($validator)

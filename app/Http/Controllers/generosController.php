@@ -32,9 +32,7 @@ class generosController extends Controller
     {
         $dadosForm = $request->all();
         //validação para adicionar novo
-        $validator = Validator::make($dadosForm, [
-            'nome' => 'required|unique:generos|min:3|max:25',
-        ]);
+        $validator = Validator::make($dadosForm);
 
         if ($validator->fails()) {
             return redirect('biblioteca/generos/add')
