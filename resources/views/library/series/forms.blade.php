@@ -39,7 +39,7 @@
 	<hr>
 	{!! Form::open( ['url' => 'biblioteca/series/add', 'class'=>'form'] ) !!}
 @endif
-	{!! Form::text('nome', isset($serie->nome) ? $serie->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'NOVO SÉRIE / COLEÇÃO', 'class' => 'text-capitalize']) !!}
+	{!! Form::text('nome', isset($serie->nome) ? $serie->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'Nova Série / Coleção']) !!}
 	{!! Form::submit('SALVAR', ['class' => 'btn btn-success']) !!}
 	{!! Form::close() !!}
 

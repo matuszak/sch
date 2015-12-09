@@ -19,7 +19,7 @@
 			<td width="160px">{!! HTML::link("biblioteca/generos/ed/u/{$genero->id}", 'EDITAR') !!} | {!! HTML::link("biblioteca/generos/rm/d/{$genero->id}", 'APAGAR') !!}</td> 
   		</tr>
   	@empty
-		<p>Nenhum registro encontrado no banco de dados... {!! HTML::link('biblioteca/generos', 'CLIQUE PARA VOLTAR', ['class' => 'btn btn-success']) !!}</p>
+		<p>Nenhum registro encontrado no banco de dados... {!! HTML::link('biblioteca', 'CLIQUE PARA VOLTAR', ['class' => 'btn btn-success']) !!}</p>
 	@endforelse
 	</table>
 	</div>

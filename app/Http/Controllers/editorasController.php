@@ -6,28 +6,28 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Library\Serie;
+use App\Models\Library\Editora;
 use DB;
 use Validator;
 
 
-class seriesController extends Controller
+class editorasController extends Controller
 {
     
     //Inicial
     public function getIndex()
     {   
         //LISTA TODOS AS COLEÇÕES E SÉRIES, CADASTRADOS OU MSG DE ERRO!
-        $series = Serie::get();
+        $editoras = Editora::get();
         //view link interno;
-        return view('library.series.index', compact('series'));   
+        return view('library.editoras.index', compact('editoras'));   
     }
     
     //Método Adicionar, recebendo dados do formulário
     public function getAdd()
     {
         //view link interno;
-        return view('library.series.forms');
+        return view('library.editoras.forms');
     }
 
     //Método Adicionar, enviando ao formulário
@@ -36,53 +36,53 @@ class seriesController extends Controller
         $dadosForm = $request->all();
         //validação para adicionar novo
         $validator = Validator::make($dadosForm, [
-            'nome' => 'required|unique:series|min:3|max:30',
+            'nome' => 'required|unique:editoras|min:3|max:30',
         ]);
 
         if ($validator->fails()) {
-            return redirect('biblioteca/series/add')
+            return redirect('biblioteca/editoras/add')
                         ->withErrors($validator)
                         ->withInput();
         }
-        Serie::create($dadosForm);
-        return redirect('biblioteca/series');
+        Editora::create($dadosForm);
+        return redirect('biblioteca/editoras');
     }
 
     //Método Editar, recebendo informações
     public function getEd($acao, $id)
     {   
-        $serie = Serie::find($id);
+        $editora = Editora::find($id);
         //view link interno;
-        return view('library.series.forms', compact('serie', 'acao'));
+        return view('library.editoras.forms', compact('editora', 'acao'));
     }
     //Método Editar, postando informações
     public function postEd(Request $request, $id)
     {
          //validação para edicação
         $validator = Validator::make($request->all(), [
-            'nome' => 'required|unique:series|min:3|max:30',
+            'nome' => 'required|unique:editoras|min:3|max:30',
         ]);
         if ($validator->fails()) {
-            return redirect('biblioteca/series/add')
+            return redirect('biblioteca/editoras/add')
                         ->withErrors($validator)
                         ->withInput();
         }
         $dadosForm = $request->except('_token');
-        Serie::where('id', $id)->update($dadosForm);
-        return redirect('biblioteca/series');
+        Editora::where('id', $id)->update($dadosForm);
+        return redirect('biblioteca/editoras');
     }
 
     //Método para exibir dados que serão deletados, confirmação
     public function getRm($acao, $id)
     {   
-        $serie = Serie::find($id);
-        return view('library.series.forms', compact('serie', 'acao'));
+        $editora = Editora::find($id);
+        return view('library.editoras.forms', compact('editora', 'acao'));
     }
     //Método que deleta do banco a informação requerida
     public function postRm(Request $request)
     {   
         $idErase = $request->only('id');
-       DB::table('series')->where('id', $idErase)->delete();
-        return redirect('biblioteca/series');
+       DB::table('editoras')->where('id', $idErase)->delete();
+        return redirect('biblioteca/editoras');
     }
 }

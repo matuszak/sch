@@ -15,10 +15,11 @@ Route::get('/', function () {   return view('welcome'); });
 Route::get('home', function () {   return view('library.index'); });
 Route::get('biblioteca', function () {   return view('library.index'); });
 
-Route::controller('library',	'libraryController');
+Route::controller('library', 'libraryController');
 Route::controller('biblioteca/generos', 'generosController');
 Route::controller('biblioteca/clientes', 'clientesController');
 Route::controller('biblioteca/series', 'seriesController');
+Route::controller('biblioteca/editoras', 'editorasController');
 
 
 //Route::get('employee', 			'employeeController@index');
