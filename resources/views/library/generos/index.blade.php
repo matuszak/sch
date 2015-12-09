@@ -3,7 +3,7 @@
 @section('content')
 	<h1><small>BIBLIOTECA</small> GÊNEROS</h1>
 	<div class="table-responsive">
-	<table class="table table-hover table-bordered">
+	<table class="table table-hover table-bordered table-condensed">
  		<th><b>#ID</b></th>
  		<th><b>NOME</b></th>
  		<th><b>AÇÕES</b></th>

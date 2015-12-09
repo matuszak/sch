@@ -36,7 +36,8 @@ class editorasController extends Controller
         $dadosForm = $request->all();
         //validação para adicionar novo
         $validator = Validator::make($dadosForm, [
-            'nome' => 'required|unique:editoras|min:3|max:30',
+             'nome' => 'required|min:3|max:40',
+             'local' => 'required|min:3|max:50',
         ]);
 
         if ($validator->fails()) {
@@ -60,7 +61,8 @@ class editorasController extends Controller
     {
          //validação para edicação
         $validator = Validator::make($request->all(), [
-            'nome' => 'required|unique:editoras|min:3|max:30',
+            'nome' => 'required|min:3|max:40',
+            'local' => 'required|min:3|max:50',
         ]);
         if ($validator->fails()) {
             return redirect('biblioteca/editoras/add')

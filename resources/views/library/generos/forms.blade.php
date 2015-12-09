@@ -1,16 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-<br>
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
+@include('includes.showErrors')
 
 {{-- Formulário de DELETAR --}}
 @if (isset($acao))
@@ -39,6 +31,7 @@
 	<hr>
 	{!! Form::open( ['url' => 'biblioteca/generos/add', 'class'=>'form'] ) !!}
 @endif
+	{!! Form::label('Nome') !!}
 	{!! Form::text('nome', isset($genero->nome) ? $genero->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'Novo Gênero']) !!}
 	{!! Form::submit('SALVAR', ['class' => 'btn btn-success']) !!}
 	{!! Form::close() !!}

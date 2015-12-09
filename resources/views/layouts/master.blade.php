@@ -7,6 +7,14 @@
     
     <body>
         @section('sidebar')
+        <ul class="nav nav-pills nav-justified">
+            <li role="presentation" class="active"><a href="">Home</a></li>
+            <li role="presentation">{!! HTML::link('biblioteca/generos', 'GÊNEROS') !!}</li>
+            <li role="presentation">{!! HTML::link('biblioteca/series', 'SÉRIES E COLEÇÕES') !!}</li>
+            <li role="presentation">{!! HTML::link('biblioteca/editoras', 'EDITORAS') !!}</li>
+            <li role="presentation"><a href="#"></a></li>
+            <li role="presentation"><a href="#"></a></li>
+        </ul>
         @show
 
         <div class="container">

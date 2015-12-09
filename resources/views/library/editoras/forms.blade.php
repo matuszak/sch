@@ -1,16 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-<br>
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
+@include('includes.showErrors')
 
 {{-- Formulário de DELETAR --}}
 @if (isset($acao))
@@ -39,9 +31,13 @@
 	<hr>
 	{!! Form::open( ['url' => 'biblioteca/editoras/add', 'class'=>'form'] ) !!}
 @endif
+	{!! Form::label('Nome') !!}
 	{!! Form::text('nome', isset($editora->nome) ? $editora->nome : null, ['class' => 'form-control form-group', 'placeholder' => '']) !!}
-	{!! Form::text('nome', isset($editora->local) ? $editora->local : null, ['class' => 'form-control form-group', 'placeholder' => '']) !!}
-	{!! Form::submit('SALVAR', ['class' => 'btn btn-success']) !!}
+	
+	{!! Form::label('Local') !!}
+	{!! Form::text('local', isset($editora->local) ? $editora->local : null, ['class' => 'form-control form-group', 'placeholder' => '']) !!}
+	
+	{!! Form::submit('SALVAR', ['class' => 'btn btn-default']) !!}
 	{!! Form::close() !!}
 
 @endsection
