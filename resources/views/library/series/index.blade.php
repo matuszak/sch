@@ -2,9 +2,8 @@
 
 @section('content')
 	<br>
+<div class="page-header"><h1>BIBLIOTECA SÉRIES/COLEÇÕES</h1></div>
 <div class="panel panel-default">
-	<h1>BIBLIOTECA SÉRIES/COLEÇÕES</h1>
-	<hr>
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $series->total() }}</span></p>
 	<table class="table table-hover table-bordered table-condensed">

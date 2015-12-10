@@ -22,6 +22,7 @@ class CreateFuncionariosTable extends Migration
             $table->string('endereco', 150);
             $table->string('email', 120);
             $table->string('nivel', 4);
+            $table->integer('user_id');
             $table->integer('matricula');
             $table->timestamps();
         });

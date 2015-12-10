@@ -16,14 +16,8 @@ Route::get('home', function () {   return view('library.index'); });
 Route::get('biblioteca', function () {   return view('library.index'); });
 
 Route::controller('library', 'libraryController');
-Route::controller('biblioteca/generos', 'generosController');
 Route::controller('biblioteca/clientes', 'clientesController');
-Route::controller('biblioteca/series', 'seriesController');
 Route::controller('biblioteca/editoras', 'editorasController');
-
-
-//Route::get('employee', 			'employeeController@index');
-//Route::controller('users', 'usersController');
-//Route::get('users', 'usersController@index');
-//Route::get('users/add', 'usersController@create');
-//Route::post('users/add', 'usersController@storage');
+Route::controller('biblioteca/funcionarios', 'funcionariosController');
+Route::controller('biblioteca/generos', 'generosController');
+Route::controller('biblioteca/series', 'seriesController');

@@ -14,7 +14,7 @@
             <li role="presentation">{!! HTML::link('biblioteca/generos', 'GÊNEROS') !!}</li>
             <li role="presentation">{!! HTML::link('biblioteca/series', 'SÉRIES/OLEÇÕES') !!}</li>
             <li role="presentation">{!! HTML::link('biblioteca/editoras', 'EDITORAS') !!}</li>
-            <li role="presentation"><a href="#"></a></li>
+            <li role="presentation">{!! HTML::link('biblioteca/funcionarios', 'FUNCIONÁRIOS') !!}</li>
             <li role="presentation"><a href="#"></a></li>
         </ul>
         @show
