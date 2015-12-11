@@ -1,8 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1><small>BIBLIOTECA</small> EDITORAS</h1>
-	<hr>
+<div class="page-header">	
+	<h1>BIBLIOTECA EDITORAS</h1>
+</div>
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $editoras->total() }}</span></p>
 	<table class="table table-hover table-bordered table-condensed">

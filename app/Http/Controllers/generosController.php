@@ -20,22 +20,17 @@ class generosController extends Controller
         return view('library.generos.index', compact('generos'));   
     }
     
-    //Método Adicionar, recebendo dados do formulário
+
+//incluir    
     public function getAdd()
     {
-        //view link interno;
         return view('library.generos.forms');
     }
 
-    //Método Adicionar, enviando ao formulário
     public function postAdd(Request $request)
     {
         $dadosForm = $request->all();
-        //validação para adicionar novo
-        $validator = Validator::make($dadosForm, [
-            'nome' => 'required|unique:generos|min:3|max:25',
-        ]);
-
+        $validator = Validator::make($dadosForm, Genero::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/generos/add')
                         ->withErrors($validator)
@@ -46,23 +41,19 @@ class generosController extends Controller
         return redirect('biblioteca/generos');
     }
 
-    //Método Editar, recebendo informações
+
+//editar
     public function getEd($acao, $id)
     {   
         $genero = Genero::find($id);
-        //view link interno;
         return view('library.generos.forms', compact('genero', 'acao'));
     }
-    //Método Editar, postando informações
+
     public function postEd(Request $request, $id)
     {
-         //validação para edição
-        $validator = Validator::make($request->all(), [
-            'nome' => 'required|unique:generos|min:3|max:25',
-        ]);
-
+        $validator = Validator::make($request->all(), Genero::$rules);
         if ($validator->fails()) {
-            return redirect('biblioteca/generos/add')
+            return redirect("biblioteca/generos/ed/u/$id")
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -71,18 +62,17 @@ class generosController extends Controller
         return redirect('biblioteca/generos');
     }
 
-    //Método para exibir dados que serão deletados, confirmação
+   
+//deletar
     public function getRm($acao, $id)
     {   
         $genero = Genero::find($id);
-        //view link interno;
         return view('library.generos.forms', compact('genero', 'acao'));
     }
-    //Método que deleta do banco a informação requerida
     public function postRm(Request $request)
     {   
         $idErase = $request->only('id');
-       DB::table('generos')->where('id', $idErase)->delete();
+        DB::table('generos')->where('id', $idErase)->delete();
         return redirect('biblioteca/generos');
     }
 }

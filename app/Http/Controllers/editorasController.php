@@ -53,7 +53,6 @@ class editorasController extends Controller
     public function getEd($acao, $id)
     {   
         $editora = Editora::find($id);
-        //view link interno;
         return view('library.editoras.forms', compact('editora', 'acao'));
     }
     //Método Editar, postando informações
@@ -65,7 +64,7 @@ class editorasController extends Controller
             'local' => 'required|min:3|max:50',
         ]);
         if ($validator->fails()) {
-            return redirect('biblioteca/editoras/add')
+            return redirect("biblioteca/editoras/ed/$id")
                         ->withErrors($validator)
                         ->withInput();
         }
