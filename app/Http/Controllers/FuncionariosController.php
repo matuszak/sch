@@ -9,6 +9,7 @@ use App\Models\Library\Funcionario;
 use DB;
 use Validator;
 
+//incio
 class FuncionariosController extends Controller
 {
   public function getIndex()
