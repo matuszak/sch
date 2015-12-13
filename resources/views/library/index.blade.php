@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1>Biblioteca 1 Aplicação principal</h1>
+	<h1>PAGINA HOME DA APLICAÇÃO</h1>
 	
 @yeld('sidebar')
 

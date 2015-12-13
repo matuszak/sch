@@ -3,77 +3,70 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Library\Funcionario;
+use DB;
+use Validator;
 
 class FuncionariosController extends Controller
 {
   public function getIndex()
     {   
-        $series = Serie::paginate(25);
+        $funcionarios = Funcionario::paginate(25);
         return view('library.funcionarios.index', compact('funcionarios'));   
     }
     
-
-    public function getEd()
+//adicionar
+    public function getAdd()
     {
-        //
+        return view('library.funcionarios.forms');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function postAdd(Request $request)
     {
-        //
+        $dadosForm = $request->all();
+        $validator = Validator::make($dadosForm, Funcionario::$rules);
+        if ($validator->fails()) {
+            return redirect('biblioteca/funcionarios/add')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        Funcionario::create($dadosForm);
+        return redirect('biblioteca/funcionarios');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    
+//editar
+    public function getEd($acao, $id)
+    {   
+        $funcionario = Funcionario::find($id);
+        return view('library.funcionarios.forms', compact('funcionario', 'acao'));
+    }
+    public function postEd(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), Funcionario::$rules);
+        if ($validator->fails()) {
+            return redirect("biblioteca/funcionarios/ed/u/$id")
+                        ->withErrors($validator)
+                        ->withInput();
+        } 
+            $dadosForm = $request->except('_token');
+            Funcionario::where('id', $id)->update($dadosForm);
+      return redirect('biblioteca/funcionarios');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+ 
+//deleta
+    public function getRm($acao, $id)
+    {   
+        $funcionario = Funcionario::find($id);
+        return view('library.funcionarios.forms', compact('funcionario', 'acao'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function postRm(Request $request)
+    {   
+        $idErase = $request->only('id');
+        DB::table('funcionarios')->where('id', $idErase)->delete();
+        return redirect('biblioteca/funcionarios');
     }
 }

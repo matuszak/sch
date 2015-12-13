@@ -60,7 +60,7 @@
 @endif
 					
 						{!! Form::label('Nome') !!}
-						{!! Form::text('nome', isset($serie->nome) ? $serie->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'Nova Série / Coleção']) !!}
+						{!! Form::text('nome', isset($serie->nome) ? $serie->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'Nome', 'required' => '""']) !!}
 						{!! Form::submit('SALVAR', ['class' => 'btn btn-primary']) !!}
 					</div>
 						{!! Form::close() !!}

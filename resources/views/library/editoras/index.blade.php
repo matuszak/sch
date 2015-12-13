@@ -1,12 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+<br>
 <div class="page-header">	
-	<h1>BIBLIOTECA EDITORAS</h1>
+	<h1>BIBLIOTECA - EDITORAS</h1>
 </div>
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $editoras->total() }}</span></p>
-	<table class="table table-hover table-bordered table-condensed">
+	<table class="table table-hover table-fluid table-bordered table-condensed">
  		
  		<th><b>NOME</b></th>
  		<th><b>LOCAL</b></th>

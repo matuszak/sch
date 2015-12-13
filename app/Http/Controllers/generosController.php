@@ -9,7 +9,7 @@ use App\Models\Library\Genero;
 use DB;
 use Validator;
 
-class generosController extends Controller
+class GenerosController extends Controller
 {
     
     //Inicial

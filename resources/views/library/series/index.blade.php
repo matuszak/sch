@@ -3,7 +3,7 @@
 @section('content')
 <br>
 	<div class="page-header">
-	<h1>BIBLIOTECA SÉRIES E COLEÇÕES</h1>
+	<h1>BIBLIOTECA - SÉRIES E COLEÇÕES</h1>
 	</div>
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $series->total() }}</span></p>

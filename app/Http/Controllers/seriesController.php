@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Library\Serie;
@@ -11,14 +10,12 @@ use DB;
 use Validator;
 
 
-class seriesController extends Controller
+class SeriesController extends Controller
 {
     
 //Inicial
     public function getIndex()
     {   
-        $fraseh1 = 'BIBLIOTECA SÉRIES/COLEÇÕES';
-        $msg = 'a';
         $series = Serie::paginate(25);
         return view('library.series.index', compact('series', 'fraseh1'));   
     }

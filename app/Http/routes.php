@@ -16,10 +16,11 @@ Route::get('home', function () {   return view('library.index'); });
 Route::get('biblioteca', function () {   return view('library.index'); });
 
 Route::controller('library', 'libraryController');
-Route::controller('biblioteca/generos', 'generosController');
-Route::controller('biblioteca/clientes', 'clientesController');
-Route::controller('biblioteca/series', 'seriesController');
-Route::controller('biblioteca/editoras', 'editorasController');
+Route::controller('biblioteca/generos', 'GenerosController');
+Route::controller('biblioteca/clientes', 'ClientesController');
+Route::controller('biblioteca/series', 'SeriesController');
+Route::controller('biblioteca/editoras', 'EditorasController');
+Route::controller('biblioteca/funcionarios', 'FuncionariosController');
 
 
 //Route::get('employee', 			'employeeController@index');
