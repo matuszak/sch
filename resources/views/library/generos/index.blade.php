@@ -34,4 +34,5 @@
 	</table>
 	<center>{!! $generos->render() !!}</center>
 	</div>
+
 @endsection

@@ -5,33 +5,24 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFuncionariosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('funcionarios', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nome', 90);
+            $table->string('nome', 16);
+            $table->string('sobrenome', 50);
+            $table->integer('user_id');
             $table->string('cpf', 16);
+            $table->string('rg', 16);
             $table->date('dataNascimento');
-            $table->string('fone', 30);
+            $table->string('foneGeral', 18);
+            $table->string('foneComercial', 18);
             $table->char('sexo', 1);
-            $table->string('endereco', 150);
-            $table->string('email', 120);
-            $table->string('nivel', 4);
-            $table->integer('matricula');
+            $table->string('endereco', 100);
+            $table->string('cargo', 18);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('funcionarios');

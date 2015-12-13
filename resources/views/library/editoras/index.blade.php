@@ -30,4 +30,5 @@
 	</table>
 	<center>{!! $editoras->render() !!}</center>
 	</div>
+</div>
 @endsection

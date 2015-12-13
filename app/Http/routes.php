@@ -21,10 +21,3 @@ Route::controller('biblioteca/clientes', 'ClientesController');
 Route::controller('biblioteca/series', 'SeriesController');
 Route::controller('biblioteca/editoras', 'EditorasController');
 Route::controller('biblioteca/funcionarios', 'FuncionariosController');
-
-
-//Route::get('employee', 			'employeeController@index');
-//Route::controller('users', 'usersController');
-//Route::get('users', 'usersController@index');
-//Route::get('users/add', 'usersController@create');
-//Route::post('users/add', 'usersController@storage');

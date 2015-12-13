@@ -8,7 +8,6 @@
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $series->total() }}</span></p>
 	<table class="table table-hover table-bordered table-condensed">
- 		
  		<th><b>NOME</b></th>
  		<th><b>AÇÕES</b></th>
  		<tr>
