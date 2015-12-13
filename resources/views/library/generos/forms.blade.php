@@ -3,9 +3,7 @@
 <?php $tituloPg = "BIBLIOTECA - Gêneros"; ?>
 
 @section('content')
-
 @include('includes.showErrors')
-
 @if (isset($acao))
 
 	@if($acao == "d")
@@ -44,7 +42,6 @@
 	@endif
 
 @else
-
 			<div class="container-fluid">
 				<div class="page-header">
 					<h1>{!! $tituloPg !!}</h1>
@@ -66,5 +63,4 @@
 						{!! Form::close() !!}
 			</div>
 		</div>	
-
 @endsection

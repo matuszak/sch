@@ -30,7 +30,7 @@ class EditorasController extends Controller
     public function postAdd(Request $request)
     {
         $dadosForm = $request->all();
-        $validator = Validator::make($request->all(), Editora::$rules);
+        $validator = Validator::make($dadosForm, Editora::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/editoras/add')
                         ->withErrors($validator)

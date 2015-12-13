@@ -1,23 +1,20 @@
-@extends('layouts.master')
 
+@extends('layouts.master')
 @section('content')
 <br>
-<div class="page-header">	
-	<h1>BIBLIOTECA - FUNCIONÁRIOS</h1>
-</div>
+<div class="page-header"><h1>BIBLIOTECA FUNCIONÁRIOS</h1></div>
+<div class="panel panel-default">
 	<div class="table-responsive">
 	<p><span class="label label-success">Total de registros cadastrados: {{ $funcionarios->total() }}</span></p>
-	<table class="table table-hover table-fluid table-bordered table-condensed">
- 		
+	<table class="table table-hover table-bordered table-condensed">
  		<th><b>NOME</b></th>
- 		<th><b>NOME</b></th>
- 		<th><b>NOME</b></th>
- 		<th><b>NOME</b></th>
- 		<th><b>NOME</b></th>
- 		<th><b>LOCAL</b></th>
+ 		<th><b>CPF</b></th>
+ 		<th><b>FONE</b></th>
+ 		<th><b>E-MAIL</b></th>
+ 		<th><b>DATA N.</b></th>
+ 		<th><b>MATRÍCULA</b></th>
  		<th><b>AÇÕES</b></th>
-
- 		<tr>
+		<tr>
  			<td></td>
  			<td></td>
  			<td></td>

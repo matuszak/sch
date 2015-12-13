@@ -45,7 +45,6 @@
 	@endif
 
 @else
-
 			<div class="container-fluid">
 				<div class="page-header">
 					<h1>{!! $tituloPg !!}</h1>
@@ -57,9 +56,7 @@
 				</div>
 					<div class="panel-body">		
 						{!! Form::open( ['url' => 'biblioteca/editoras/add', 'class'=>'form'] ) !!}
-
 @endif
-
 						{!! Form::label('Nome') !!}
 						{!! Form::text('nome', isset($editora->nome) ? $editora->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'Nome', 'required' => '""']) !!}
 						

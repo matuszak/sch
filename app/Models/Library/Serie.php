@@ -11,5 +11,4 @@ class Serie extends Model
     static $rules = [
             'nome' => 'required|unique:series|min:3|max:30',
         ];
-
 }

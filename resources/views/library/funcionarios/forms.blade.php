@@ -41,9 +41,7 @@
 				</div>
 					<div class="panel-body">
 						{!! Form::open( ['url' => "biblioteca/funcionarios/ed/$funcionario->id", 'class'=>'form'] ) !!}
-
 	@endif
-
 @else
 
 			<div class="container-fluid">
@@ -57,7 +55,6 @@
 				</div>
 					<div class="panel-body">		
 						{!! Form::open( ['url' => 'biblioteca/funcionarios/add', 'class'=>'form'] ) !!}
-
 @endif
 
 					<fieldset>
@@ -164,16 +161,12 @@
 					  <label class="col-md-4 control-label" for="endereco">Endereço</label>  
 					  <div class="">
 					  						{!! Form::text('endereco', isset($funcionario->endereco) ? $funcionario->endereco : null, ['class' => 'form-control input-md', 'placeholder' => 'ex: Av./Rua (nome), 0000']) !!}
-					    
 					  </div>
 					</div>
 											{!! Form::submit('SALVAR', ['class' => 'btn btn-default']) !!}
-
 						</fieldset>
 						</div>
-						
 											{!! Form::close() !!}
-								
 								</div>
 							</div>	
 @endsection

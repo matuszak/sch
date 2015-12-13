@@ -10,6 +10,6 @@ class Genero extends Model
 	//essa váriavel só aceita esse nome;
    	protected $guarded = ['id'];
    	static $rules = [
-   			'nome' => 'required|unique:generos|min:3|max:25',
-   					];
+   		'nome' => 'required|unique:generos|min:3|max:25',
+   	];
 }

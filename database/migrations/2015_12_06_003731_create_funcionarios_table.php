@@ -8,16 +8,16 @@ class CreateFuncionariosTable extends Migration
     public function up()
     {
         Schema::create('funcionarios', function (Blueprint $table) {
-            $table->string('nome', 16);
+            $table->string('nome', 20);
             $table->string('sobrenome', 50);
             $table->integer('user_id');
             $table->string('cpf', 16);
             $table->string('rg', 16);
             $table->date('dataNascimento');
             $table->string('foneGeral', 18);
-            $table->string('foneComercial', 18);
+            $table->string('foneOp', 18);
             $table->char('sexo', 1);
-            $table->string('endereco', 100);
+            $table->string('endereco', 120);
             $table->string('cargo', 18);
             $table->timestamps();
         });

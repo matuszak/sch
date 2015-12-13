@@ -40,11 +40,9 @@
 				</div>
 					<div class="panel-body">
 						{!! Form::open( ['url' => "biblioteca/series/ed/$serie->id", 'class'=>'form'] ) !!}
-
 	@endif
 
 @else
-
 			<div class="container-fluid">
 				<div class="page-header">
 					<h1>{!! $tituloPg !!}</h1>
@@ -66,5 +64,4 @@
 						{!! Form::close() !!}
 			</div>
 		</div>	
-
 @endsection
