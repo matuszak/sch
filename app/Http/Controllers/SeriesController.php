@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Library\Serie;
@@ -11,30 +10,26 @@ use DB;
 use Validator;
 
 
-class seriesController extends Controller
+class SeriesController extends Controller
 {
     
-    //Inicial
+//Inicial
     public function getIndex()
     {   
-        //LISTA TODOS AS COLEÇÕES E SÉRIES, CADASTRADOS OU MSG DE ERRO!
         $series = Serie::paginate(25);
-        //view link interno;
-        return view('library.series.index', compact('series'));   
+        return view('library.series.index', compact('series', 'fraseh1'));   
     }
+
     
-    //Método Adicionar, recebendo dados do formulário
+//adicionar
     public function getAdd()
     {
-        //view link interno;
         return view('library.series.forms');
     }
 
-    //Método Adicionar, enviando ao formulário
     public function postAdd(Request $request)
     {
         $dadosForm = $request->all();
-        //validação para adicionar novo
         $validator = Validator::make($dadosForm, Serie::$rules);
         if ($validator->fails()) {
             return redirect('biblioteca/series/add')
@@ -45,39 +40,37 @@ class seriesController extends Controller
         return redirect('biblioteca/series');
     }
 
-    //Método Editar, recebendo informações
+    
+//editar
     public function getEd($acao, $id)
     {   
         $serie = Serie::find($id);
-        //view link interno;
         return view('library.series.forms', compact('serie', 'acao'));
     }
-    //Método Editar, postando informações
     public function postEd(Request $request, $id)
     {
-         //validação para edicação
         $validator = Validator::make($request->all(), Serie::$rules);
         if ($validator->fails()) {
-            return redirect('biblioteca/series/add')
+            return redirect("biblioteca/series/ed/u/$id")
                         ->withErrors($validator)
                         ->withInput();
-        }
-        $dadosForm = $request->except('_token');
-        Serie::where('id', $id)->update($dadosForm);
-        return redirect('biblioteca/series');
+        } 
+            $dadosForm = $request->except('_token');
+            Serie::where('id', $id)->update($dadosForm);
+      return redirect('biblioteca/series');
     }
 
-    //Método para exibir dados que serão deletados, confirmação
+ 
+//deleta
     public function getRm($acao, $id)
     {   
         $serie = Serie::find($id);
         return view('library.series.forms', compact('serie', 'acao'));
     }
-    //Método que deleta do banco a informação requerida
     public function postRm(Request $request)
     {   
         $idErase = $request->only('id');
-       DB::table('series')->where('id', $idErase)->delete();
+        DB::table('series')->where('id', $idErase)->delete();
         return redirect('biblioteca/series');
     }
 }

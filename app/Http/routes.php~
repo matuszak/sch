@@ -15,7 +15,7 @@ Route::get('/', function () {   return view('welcome'); });
 Route::get('home', function () {   return view('library.index'); });
 Route::get('biblioteca', function () {   return view('library.index'); });
 
-//Route::controller('library', 'libraryController');
+Route::controller('library', 'libraryController');
 Route::controller('biblioteca/generos', 'GenerosController');
 Route::controller('biblioteca/clientes', 'ClientesController');
 Route::controller('biblioteca/series', 'SeriesController');
