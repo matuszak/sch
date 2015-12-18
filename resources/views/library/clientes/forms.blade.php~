@@ -72,13 +72,15 @@
 					    
 					  </div>
 					</div>
-
+					
+					
 					<!-- Text input-->
+
 					<div class="form-group">
-					  <label class="col-md-4 control-label" for="sobreNome">Sobre nome</label>  
+					  <label class="col-md-4 control-label" for="email">E-mail</label>  
 					  <div class="">
-					  {!! Form::text('sobreNome', isset($cliente->sobreNome) ? $cliente->sobreNome : null, ['class' => 'form-control input-md', 'placeholder' => 'Sobre nome']) !!}
-						    
+					  {!! Form::text('email', isset($cliente->email) ? $cliente->email : null, ['class' => 'form-control input-md', 'placeholder' => 'E-mail']) !!}
+					    
 					  </div>
 					</div>
 
@@ -119,20 +121,11 @@
 					  </div>
 					</div>
 
-					<!-- Text input-->
-					<div class="form-group">
-					  <label class="col-md-4 control-label" for="rg">Registro Geral</label>  
-					  <div class="">					  
-					  {!! Form::text('rg', isset($cliente->rg) ? $cliente->rg : null, ['class' => 'form-control input-md', 'placeholder' => 'ex: 000001234']) !!}
-					    
-					  </div>
-					</div>
-
 					<!-- Select Basic -->
 					<div class="form-group">
-					  <label class="col-md-4 control-label" for="cargo">Cargo</label>
+					  <label class="col-md-4 control-label" for="tipo">Cargo</label>
 					  <div class="">
-					  {!! Form::select('cargo', ['' => 'Selecione', 'Administrativo' => 'Administrativo', 'Gestor' => 'Gestor', 'Professor' => 'Professor', 'Outros' => 'Outros'], isset($cliente->cargo) ? $cliente->cargo : '', ['class' => 'form-control']) !!}
+					  {!! Form::select('tipo', ['' => 'Selecione', 'Administrativo' => 'Administrativo', 'Gestor' => 'Gestor', 'Professor' => 'Professor', 'Outros' => 'Outros'], isset($cliente->tipo) ? $cliente->tipo : '', ['class' => 'form-control']) !!}
 
 					  </div>
 					</div>
@@ -141,19 +134,10 @@
 					<legend>Contato</legend>
 					<!-- Text input-->
 					<div class="form-group">
-					  <label class="col-md-4 control-label" for="foneGeral">Telefone Geral</label>  
+					  <label class="col-md-4 control-label" for="fone">Telefone Geral</label>  
 					  <div class="">
-						{!! Form::text('foneGeral', isset($cliente->foneGeral) ? $cliente->foneGeral : null, ['class' => 'form-control input-md', 'placeholder' => 'ex: (00) 0000-0000']) !!}
+						{!! Form::text('fone', isset($cliente->fone) ? $cliente->fone : null, ['class' => 'form-control input-md', 'placeholder' => 'ex: (00) 0000-0000']) !!}
 					  <span class="help-block">Pode ser telefone de um responsável</span>  
-					  </div>
-					</div>
-
-					<!-- Text input-->
-					<div class="form-group">
-					  <label class="col-md-4 control-label" for="foneOpcao">Telefone Opcional</label>  
-					  <div class="">
-						{!! Form::text('foneOp', isset($cliente->foneOp) ? $cliente->foneOp : null, ['class' => 'form-control input-md', 'placeholder' => 'ex: (00) 0000-0000']) !!}
-					    
 					  </div>
 					</div>
 

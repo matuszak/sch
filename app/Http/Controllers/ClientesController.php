@@ -18,10 +18,11 @@ class ClientesController extends Controller
      */
     public function getIndex()
     {   
-    	  $clientes = Cliente::paginate(25);
+        $clientes = Cliente::paginate(25);
         return view('library.clientes.index', compact('clientes'));   
     }
-
+    
+//adicionar
     public function getAdd()
     {
         return view('library.clientes.forms');
@@ -40,14 +41,13 @@ class ClientesController extends Controller
         return redirect('biblioteca/clientes');
     }
 
-
-    //Método Editar, recebendo informações
+    
+//editar
     public function getEd($acao, $id)
     {   
         $cliente = Cliente::find($id);
         return view('library.clientes.forms', compact('cliente', 'acao'));
     }
-
     public function postEd(Request $request, $id)
     {
         $validator = Validator::make($request->all(), Cliente::$rules);
@@ -55,20 +55,19 @@ class ClientesController extends Controller
             return redirect("biblioteca/clientes/ed/u/$id")
                         ->withErrors($validator)
                         ->withInput();
-        }
-        $dadosForm = $request->except('_token');
-        Cliente::where('id', $id)->update($dadosForm);
-        return redirect('biblioteca/clientes');
+        } 
+            $dadosForm = $request->except('_token');
+            Cliente::where('id', $id)->update($dadosForm);
+      return redirect('biblioteca/clientes');
     }
 
-  
-    //Método para exibir dados que serão deletados, confirmação
+ 
+//deleta
     public function getRm($acao, $id)
     {   
         $cliente = Cliente::find($id);
         return view('library.clientes.forms', compact('cliente', 'acao'));
     }
-
     public function postRm(Request $request)
     {   
         $idErase = $request->only('id');

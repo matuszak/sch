@@ -8,4 +8,14 @@ class Cliente extends Model
 {
     //usar guarded
     protected $guarded = ['id'];
+     static $rules = [
+    	'nome' => 'required|max:80',
+    	
+    	'dataNascimento' => 'required',
+    	
+    	'cpf' => 'required',
+    	'endereco' => 'required',
+    	'fone' => 'required',
+    	'tipo' => 'required',
+    ];
 }

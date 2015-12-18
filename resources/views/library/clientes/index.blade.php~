@@ -1,71 +1,41 @@
+
 @extends('layouts.master')
-
-<?php $tituloPg = "BIBLIOTECA - CLIENTES"; ?>
-
 @section('content')
-
-@include('includes.showErrors')
-
-
-@if (isset($acao))
-
-	@if($acao == "d")
-		<div class="container-fluid">
-			<div class="page-header">
-				<h1>{!! $tituloPg !!}</h1>
-				<p class="bg-danger"><b>O REGISTRO SERÁ EXCLUÍDO, DESEJA CONFIRMAR?</b></p>
-			</div>
-			<br>
-			<div class="panel panel-default">
-				<div class='panel panel-header'>
-					<h1 class="panel-title"><b>Excluir registro selecionado</b></h1>
-				</div>
-					<div class="panel-body"> 
-						{!! Form::open( ['url' => "biblioteca/clientes/rm/d/$cliente->id", 'class'=>'form'] ) !!}
-						{!! Form::hidden('id', $cliente->id) !!}
-	@endif
-
-@endif
-
-@if (isset($cliente))
-
-	@if($acao == "u")
-			<div class="container-fluid">
-				<div class="page-header">
-					<h1>{!! $tituloPg !!}</h1>
-				</div>
-			<br>
-			<div class="panel panel-default">
-				<div class='panel panel-header'>
-					<h1 class="panel-title"><b>Editar registro selecionado</b></h1>
-				</div>
-					<div class="panel-body">
-						{!! Form::open( ['url' => "biblioteca/clientes/ed/$cliente->id", 'class'=>'form'] ) !!}
-
-	@endif
-
-@else
-			<div class="container-fluid">
-				<div class="page-header">
-					<h1>{!! $tituloPg !!}</h1>
-				</div>
-			<br>
-			<div class="panel panel-default">
-				<div class='panel panel-header'>
-					<h1 class="panel-title"><b>Incluir novo registro</b></h1>
-				</div>
-					<div class="panel-body">		
-						{!! Form::open( ['url' => 'biblioteca/clientes/add', 'class'=>'form'] ) !!}
-@endif
-						{!! Form::label('Nome') !!}
-						{!! Form::text('nome', isset($cliente->nome) ? $cliente->nome : null, ['class' => 'form-control form-group', 'placeholder' => 'Nome', 'required' => '""']) !!}
-						
-						{!! Form::label('Local') !!}
-						{!! Form::text('local', isset($cliente->local) ? $cliente->local : null, ['class' => 'form-control form-group', 'placeholder' => 'Local', 'required' => '""']) !!}
-						
-						{!! Form::submit('SALVAR', ['class' => 'btn btn-default']) !!}
-					</div>
-						{!! Form::close() !!}
-			</div>
-		</div>	
+<br>
+<div class="page-header"><h1>BIBLIOTECA CLIENTES</h1></div>
+<div class="panel panel-default">
+	<div class="table-responsive">
+	<p><span class="label label-success">Total de registros cadastrados: {{ $clientes->total() }}</span></p>
+	<table class="table table-hover table-bordered table-condensed">
+ 		<th><b>NOME</b></th>
+ 		<th><b>CPF</b></th>
+ 		<th><b>FONE</b></th>
+ 		<th><b>E-MAIL</b></th>
+ 		<th><b>DATA N.</b></th>
+ 		<th><b>AÇÕES</b></th>
+		<tr>
+ 			<td></td>
+ 			<td></td>
+ 			<td></td>
+ 			<td></td>
+ 			<td></td>
+ 			<td wid>{!! HTML::link('biblioteca/clientes/add', 'ADICIONAR') !!}</td>
+		</tr>
+	@forelse($clientes as $cliente)
+		<tr>
+			<td>{{$cliente->nome}}</td>
+			<td>{{$cliente->local}}</td>
+ 			<td>{{$cliente->cpf}}</td>
+ 			<td>{{$cliente->fone}}</td>
+ 			<td>{{$cliente->email}}</td>
+ 			<td>{{$cliente->dataNascimento}}</td>
+ 			<td width="160px">{!! HTML::link("biblioteca/clientes/ed/u/{$cliente->id}", 'EDITAR') !!} | {!! HTML::link("biblioteca/clientes/rm/d/{$cliente->id}", 'APAGAR') !!}</td> 
+  		</tr>
+  	@empty
+		<p class="bg-danger">Nenhum registro encontrado no banco de dados... </p><br>
+		{!! HTML::link('biblioteca', 'CLIQUE PARA VOLTAR', ['class' => 'btn btn-warning']) !!}</p><br>
+	@endforelse
+	</table>
+	<center>{!! $clientes->render() !!}</center>
+	</div>
 @endsection

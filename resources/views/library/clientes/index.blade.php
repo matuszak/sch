@@ -24,8 +24,7 @@
 	@forelse($clientes as $cliente)
 		<tr>
 			<td>{{$cliente->nome}}</td>
-			<td>{{$cliente->local}}</td>
- 			<td>{{$cliente->cpf}}</td>
+			<td>{{$cliente->cpf}}</td>
  			<td>{{$cliente->fone}}</td>
  			<td>{{$cliente->email}}</td>
  			<td>{{$cliente->dataNascimento}}</td>
