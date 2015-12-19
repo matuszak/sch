@@ -13,7 +13,7 @@ class Cliente extends Model
     	
     	'dataNascimento' => 'required',
     	
-    	'cpf' => 'required',
+    	'cpf' => 'required|unique:users',
     	'endereco' => 'required',
     	'fone' => 'required',
     	'tipo' => 'required',
